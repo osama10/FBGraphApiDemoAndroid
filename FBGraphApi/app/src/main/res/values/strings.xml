@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FBGraphApi</string>
+    <string name="facebook_app_id">487249474945522</string>
+    <string name="fb_login_protocol_scheme">fb487249474945522</string>
+</resources>

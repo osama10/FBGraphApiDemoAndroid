@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "dagger.com.fbgraphapi"
+        minSdkVersion 15
+        targetSdkVersion 25
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+
+    compile 'com.facebook.android:facebook-android-sdk:4.+'
+    compile('com.calldorado:calldorado-release:3.6.+@aar') {
+        transitive = true
+    }
+    compile 'com.android.support:multidex:1.0.1'
+
+    testCompile 'junit:junit:4.12'
+}
+
+apply plugin: 'calldorado'
+calldorado {
+    accountId = "a1-6ddac232-68c1-4f1f-b168-40cd03557730"
+    appId = "b0-b8aad8e9-d3da-40bf-a9f6-4cd5ce807d4b"
+}
